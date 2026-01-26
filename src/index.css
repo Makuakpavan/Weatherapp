@@ -1,0 +1,265 @@
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f4f8;
+  margin: 0;
+  padding: 1rem;
+}
+
+
+.weather-card {
+  max-width: 420px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.weather-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+}
+
+.city {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
+}
+
+.temp {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin: 1rem 0;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+}
+
+.detail-item span {
+  font-size: 1.5rem;
+}
+
+.detail-item small {
+  display: block;
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+.detail-item strong {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Tablet */
+@media (min-width: 600px) {
+  .details {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Desktop */
+@media (min-width: 900px) {
+  .weather-card {
+    max-width: 480px;
+    padding: 2rem;
+  }
+
+  .temp {
+    font-size: 4rem;
+  }
+}
+
+.search-container {
+  max-width: 420px;
+  margin: 1.5rem auto;
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.search-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  transition: box-shadow 0.2s ease, transform 0.1s ease;
+}
+
+.search-input::placeholder {
+  color: #888;
+}
+
+.search-input:focus {
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.35);
+  transform: scale(1.01);
+}
+
+.search-button {
+  padding: 0.75rem 1.25rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+
+.search-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+  opacity: 0.95;
+}
+
+.search-button:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* Mobile optimization */
+@media (max-width: 480px) {
+  .search-container {
+    flex-direction: column;
+  }
+
+  .search-button {
+    width: 100%;
+  }
+}
+
+/* Tablet+ */
+@media (min-width: 768px) {
+  .search-container {
+    max-width: 480px;
+  }
+}
+
+.loader-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem auto;
+  gap: 0.75rem;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid #fff;
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.loader-text {
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  opacity: 0.85;
+}
+
+/* Bigger on desktop */
+@media (min-width: 768px) {
+  .spinner {
+    width: 56px;
+    height: 56px;
+    border-width: 5px;
+  }
+
+  .loader-text {
+    font-size: 1rem;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.app-container {
+  min-height: 100vh;
+  padding: 1.5rem 1rem 3rem;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app-title {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+/* Tablet */
+@media (min-width: 600px) {
+  .app-title {
+    font-size: 2.4rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .app-title {
+    font-size: 2.8rem;
+  }
+}
+
+.error-message {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  background: rgba(255, 0, 0, 0.15);
+  color: #ffb3b3;
+  font-size: 0.9rem;
+  text-align: center;
+  animation: shake 0.4s ease;
+}
+
+/* Subtle shake animation for errors */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-4px); }
+  100% { transform: translateX(0); }
+}
+
+
